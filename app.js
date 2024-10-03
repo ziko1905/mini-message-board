@@ -20,6 +20,7 @@ const messages = [
     }
   ];
 
+app.use(express.urlencoded({extended: true}))
 app.use(newRouter)
 
 app.get("/", (req, res) => {
