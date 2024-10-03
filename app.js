@@ -1,5 +1,6 @@
 const express = require("express")
 const path = require("node:path")
+const path = require("node:path")
 const app = express()
 const PORT = 3000;
 
@@ -31,6 +32,7 @@ app.get("/new", () => {
 
 app.use((err, req, res, next) => {
     res.render("error", { errMsg: err })
+    console.log(err)
     console.log(err)
 })
 
