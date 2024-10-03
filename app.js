@@ -1,7 +1,7 @@
 const express = require("express")
 const path = require("node:path")
 const newRouter = require("./routes/newRouter")
-const indexRouter = require("./routes/indexRouter")
+const indexRouter = require("./routes/indexRouter").router
 const app = express()
 const PORT = 3000;
 
