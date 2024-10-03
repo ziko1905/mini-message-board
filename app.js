@@ -1,7 +1,7 @@
 const express = require("express")
 const path = require("node:path")
-const path = require("node:path")
 const app = express()
+const messageController = require("./controllers/messageController")
 const PORT = 3000;
 
 app.set("views", path.join(__dirname, "views"))
@@ -23,16 +23,14 @@ const messages = [
 
 app.get("/", (req, res) => {
     res.render("index", {pageTitle: "Mini Messanger"})
-    // res.send("Homepage send")
 })
 
-app.get("/new", () => {
-    app.render("new", {pageTitle: "New Message", messages})
+app.get("/new", (req, res, next) => {
+    messageController.getAllMessages(req, res, next, messages)
 })
 
 app.use((err, req, res, next) => {
-    res.render("error", { errMsg: err })
-    console.log(err)
+    res.status(404).render("error", { errMsg: err })
     console.log(err)
 })
 
