@@ -11,6 +11,10 @@ app.get("/", (req, res) => {
     // res.send("Homepage send")
 })
 
+app.get("/new", () => {
+    app.render("new", {pageTitle: "New Message"})
+})
+
 app.use((err, req, res, next) => {
     res.stauts(500).render("error", { errMsg: err })
     console.log(err)
