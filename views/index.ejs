@@ -6,6 +6,9 @@
     <title><%= pageTitle %></title>
 </head>
 <body>
-    <h1>This is homepage!</h1>
+    <h1>Messages: </h1>
+    <% messages.forEach(msg => { %>
+    <%- include('message', {user: msg.user, message: msg.text, date: msg.added}) %>
+    <% }) %>
 </body>
 </html>

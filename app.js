@@ -1,7 +1,7 @@
 const express = require("express")
 const path = require("node:path")
+const newRouter = require("./routes/newRouter")
 const app = express()
-const messageController = require("./controllers/messageController")
 const PORT = 3000;
 
 app.set("views", path.join(__dirname, "views"))
@@ -19,14 +19,11 @@ const messages = [
       added: new Date()
     }
   ];
-  
+
+app.use(newRouter)
 
 app.get("/", (req, res) => {
-    res.render("index", {pageTitle: "Mini Messanger"})
-})
-
-app.get("/new", (req, res, next) => {
-    messageController.getAllMessages(req, res, next, messages)
+    res.render("index", {pageTitle: "Mini Messenger", messages})
 })
 
 app.use((err, req, res, next) => {
