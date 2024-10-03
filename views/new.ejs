@@ -6,6 +6,11 @@
     <title><%= pageTitle %></title>
 </head>
 <body>
-    <h1>This is new message page!</h1>
+    <h1>Messages</h1>
+    <div class="message-list">
+        <% messages.forEach(msg => { %>
+        <%- include('message', {user: msg.user, message: msg.text, date: msg.added}) %>
+        <% }) %>
+    </div>
 </body>
 </html>
