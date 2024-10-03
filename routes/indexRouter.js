@@ -15,7 +15,6 @@ const messages = [
 ];
 
 router.get("/", (req, res, next) => {
-    console.log("Called")
     try {
         res.render("index", {pageTitle: "Messages", messages})
     } catch (err) {
