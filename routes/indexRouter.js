@@ -1,25 +1,12 @@
 const express = require("express")
 const router = express.Router()
 
-const messages = [
-    {
-      text: "Hi there!",
-      user: "Amando",
-      added: new Date()
-    },
-    {
-      text: "Hello World!",
-      user: "Charles",
-      added: new Date()
-    }
-];
-
 router.get("/", (req, res, next) => {
     try {
-        res.render("index", {pageTitle: "Messages", messages})
+        res.render("index", {pageTitle: "Messages", "will be queried from db - wip"})
     } catch (err) {
         next(err)
     }
 })
 
-module.exports = {router, messages}
+module.exports = {router,}
