@@ -11,8 +11,12 @@ const createMessage = async (message) => {
 }
 
 const getAllMessages = async () => {
-    const { rows } = await pool.query("SELECT * FROM messages")
-    return rows
+     try {
+        const { rows } = await pool.query("SELECT * FROM messages")
+        return rows
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 const getMessage = async (message) => {
