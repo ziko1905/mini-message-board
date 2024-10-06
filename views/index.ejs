@@ -7,8 +7,8 @@
 </head>
 <body>
     <h1>Messages: <a href="/new">Create new</a></h1>
-    <% messages.forEach((msg, index) => { %>
-    <%- include('message', {user: msg.username, message: msg.text, date: msg.added, index}) %>
+    <% messages.forEach((msg) => { %>
+    <%- include('message', {user: msg.username, message: msg.text, date: msg.added, id: msg.id}) %>
     <% }) %>
 </body>
 </html>
