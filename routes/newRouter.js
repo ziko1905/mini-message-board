@@ -7,7 +7,7 @@ router.get("/new", (req, res) => {
 })
 
 router.post("/new", async (req, res, next) => {
-    await db.createMessage(req.body)
+    await db.createMessage({...req.body, added: new Date()})
     res.redirect('/')
 })
 
